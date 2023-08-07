@@ -52,7 +52,7 @@ public class Networks extends JavaPlugin implements SlimefunAddon {
         }
 
         getLogger().info("#############################################");
-        getLogger().info("          Networks-Changed - 网络改版          ");
+        getLogger().info("          Networks-Changed - 网络改版 和乐果专版          ");
         getLogger().info("  作者: Sefiraat 汉化: ybw0014 改版：shixinzia  ");
         getLogger().info("#############################################");
 
