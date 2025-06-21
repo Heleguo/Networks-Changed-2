@@ -3,17 +3,21 @@ package io.github.sefiraat.networks.network;
 import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 import io.github.sefiraat.networks.NetworkStorage;
 import io.github.sefiraat.networks.Networks;
+import io.github.sefiraat.networks.network.stackcaches.ItemRequest;
+import io.github.sefiraat.networks.slimefun.network.NetworkController;
 import io.github.sefiraat.networks.slimefun.network.NetworkPowerNode;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.BlockFace;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import javax.annotation.Nonnull;
 import java.util.EnumSet;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class NetworkNode {
@@ -126,6 +130,8 @@ public class NetworkNode {
             BukkitRunnable runnable = new BukkitRunnable() {
                 @Override
                 public void run() {
+                    //fix #99
+                    NetworkController.wipeNetwork(location);
                     location.getWorld().dropItemNaturally(location, sfItem.getItem());
                     location.getBlock().setType(Material.AIR);
                 }
@@ -150,4 +156,5 @@ public class NetworkNode {
     public long getPower() {
         return this.power;
     }
+
 }

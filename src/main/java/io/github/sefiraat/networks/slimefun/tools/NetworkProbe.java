@@ -73,9 +73,25 @@ public class NetworkProbe extends SlimefunItem implements CanCooldown {
             final int powerNodes = root.getPowerNodes().size();
             final int powerDisplays = root.getPowerDisplays().size();
             final int encoders = root.getEncoders().size();
-
+            final int cutters = root.getCutters().size();
+            final int pasters = root.getPasters().size();
+            final int vacuums = root.getVacuums().size();
+            final int wirelessTransmitters = root.getWirelessTransmitters().size();
+            final int wirelessReceivers = root.getWirelessReceivers().size();
+            final int powerOutlets = root.getPowerOutlets().size();
+            final int greedyBlocks = root.getGreedyBlocks().size();
             final Map<ItemStack, Integer> allNetworkItems = root.getAllNetworkItems();
             final int distinctItems = allNetworkItems.size();
+
+            final int chaingpushers = root.getChaingPusher().size();
+            final int chaingpurgersPlus = root.getChaingPusherPlus().size();
+            final int chainggrabbers = root.getChainGrabber().size();
+            final int chainggrabbersPlus = root.getChainGrabberPlus().size();
+            final int advancedimporters = root.getAdvancedImport().size();
+            final int advancedexporters = root.getAdvancedExport().size();
+            final int coordinateTransmitters = root.getCoordinateTransmitter().size();
+            final int coordinateReceivers = root.getCoordinateReceiver().size();
+
             long totalItems = allNetworkItems.values().stream().mapToLong(integer -> integer).sum();
 
             final String nodeCount = root.getNodeCount() >= root.getMaxNodes()
@@ -103,9 +119,27 @@ public class NetworkProbe extends SlimefunItem implements CanCooldown {
             player.sendMessage(MESSAGE_FORMAT.format(new Object[]{c, "网络能源节点", p, powerNodes}, new StringBuffer(), null).toString());
             player.sendMessage(MESSAGE_FORMAT.format(new Object[]{c, "网络电表", p, powerDisplays}, new StringBuffer(), null).toString());
             player.sendMessage(MESSAGE_FORMAT.format(new Object[]{c, "网络配方编码器", p, encoders}, new StringBuffer(), null).toString());
+            player.sendMessage(MESSAGE_FORMAT.format(new Object[]{c, "网络剪切器", p, cutters}, new StringBuffer(), null).toString());
+            player.sendMessage(MESSAGE_FORMAT.format(new Object[]{c, "网络粘贴器", p, pasters}, new StringBuffer(), null).toString());
+            player.sendMessage(MESSAGE_FORMAT.format(new Object[]{c, "网络吸尘器", p, vacuums}, new StringBuffer(), null).toString());
+            player.sendMessage(MESSAGE_FORMAT.format(new Object[]{c, "网络无线发射器", p, wirelessTransmitters}, new StringBuffer(), null).toString());
+            player.sendMessage(MESSAGE_FORMAT.format(new Object[]{c, "网络无线接收器", p, wirelessReceivers}, new StringBuffer(), null).toString());
+            player.sendMessage(MESSAGE_FORMAT.format(new Object[]{c, "网络插口", p, powerOutlets}, new StringBuffer(), null).toString());
+            player.sendMessage(MESSAGE_FORMAT.format(new Object[]{c, "网络阻断器", p, greedyBlocks}, new StringBuffer(), null).toString());
+            player.sendMessage("------------------------------");
+            player.sendMessage("         网络拓展 - 组件统计        ");
+            player.sendMessage("------------------------------");
+            player.sendMessage(MESSAGE_FORMAT.format(new Object[]{c, "网络链式推送器", p, chaingpushers}, new StringBuffer(), null).toString());
+            player.sendMessage(MESSAGE_FORMAT.format(new Object[]{c, "网络链式推送器Plus", p, chaingpurgersPlus}, new StringBuffer(), null).toString());
+            player.sendMessage(MESSAGE_FORMAT.format(new Object[]{c, "网络链式抓取器", p, chainggrabbers}, new StringBuffer(), null).toString());
+            player.sendMessage(MESSAGE_FORMAT.format(new Object[]{c, "网络链式抓取器Plus", p, chainggrabbersPlus}, new StringBuffer(), null).toString());
+            player.sendMessage(MESSAGE_FORMAT.format(new Object[]{c, "网络高级入口", p, advancedimporters}, new StringBuffer(), null).toString());
+            player.sendMessage(MESSAGE_FORMAT.format(new Object[]{c, "网络高级出口", p, advancedexporters}, new StringBuffer(), null).toString());
+            player.sendMessage(MESSAGE_FORMAT.format(new Object[]{c, "网络坐标传输器", p, coordinateTransmitters}, new StringBuffer(), null).toString());
+            player.sendMessage(MESSAGE_FORMAT.format(new Object[]{c, "网络坐标接收器", p, coordinateReceivers}, new StringBuffer(), null).toString());
+            player.sendMessage("------------------------------");
             player.sendMessage(MESSAGE_FORMAT.format(new Object[]{c, "物品类型数量", p, distinctItems}, new StringBuffer(), null).toString());
             player.sendMessage(MESSAGE_FORMAT.format(new Object[]{c, "累计物品数量", p, totalItems}, new StringBuffer(), null).toString());
-
             player.sendMessage("------------------------------");
             player.sendMessage(MESSAGE_FORMAT.format(new Object[]{c, "累计节点", p, nodeCount + "/" + root.getMaxNodes()}, new StringBuffer(), null).toString());
             if (root.isOverburdened()) {
